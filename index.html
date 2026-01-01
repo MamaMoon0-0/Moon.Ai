@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Moon.ai</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Favicon -->
+  <link rel="icon" href="/MoonLogo.png" type="image/png">
+
+
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand">Moon.ai</div>
+      <div class="top-actions">
+        <button class="btn ghost topbar-btn" onclick="handleLogin()">Log in</button>
+        <button class="btn primary topbar-btn" onclick="handleSignup()">Sign up</button>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Left column: Login card -->
+    <div class="cards">
+      <div class="card grouped">
+        <div class="group">
+          <div class="group-row">
+            <button class="btn" aria-label="Continue with Google" onclick="continueWithGoogle()">Continue with google</button>
+            <button class="btn" aria-label="Continue with Apple" onclick="continueWithApple()">Continue with apple</button>
+          </div>
+
+          <div class="or-separator" aria-hidden="true"><span>Or</span></div>
+
+          <div class="group-row">
+            <button class="btn" aria-label="Continue with Email" onclick="continueWithEmail()">Continue with email</button>
+          </div>
+        </div>
+        <div class="card-note">By continuing, you agree with the <a href="#" onclick="openModal('terms'); return false;">Terms</a> and <a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a></div>
+      </div>
+    </div>
+
+    <!-- Right column: Moon illustration -->
+    <div class="logo-container">
+      <img src="MoonLogo 2.png" alt="Moon logo" class="moonlogo" width="40px" height="40px">
+     </div>
+  </main>
+
+  <!-- About button - bottom right -->
+  <a href="#" onclick="openModal('about'); return false;" class="about-btn">About</a>
+
+  <!-- Modal overlays -->
+  <div id="modal-about" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('about')">&times;</button>
+      <h1 style="color:var(--accent);font-size:48px;margin-bottom:24px;">About Moon.ai</h1>
+      
+      <h2 style="color:var(--accent);margin-top:0;">Welcome to Moon.ai</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        Moon.ai is a dreamy, intuitive platform designed to bring a touch of magic to your digital experience. 
+        We believe in creating beautiful, accessible tools that make technology feel natural and welcoming.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Our Mission</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        To create delightful user experiences that blend functionality with aesthetic beauty, 
+        making advanced technology accessible to everyone through thoughtful design and intuitive interfaces.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Features</h2>
+      <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+        <li>Beautiful, responsive design that works on all devices</li>
+        <li>Secure authentication with multiple sign-in options</li>
+        <li>Dark and light theme support for comfortable viewing</li>
+        <li>Privacy-focused approach to user data</li>
+      </ul>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Contact Us</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        Have questions or feedback? We'd love to hear from you. 
+        Reach out at <a href="mailto:hello@moon.ai" style="color:var(--accent);font-weight:600;">hello@moon.ai</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="modal-terms" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('terms')">&times;</button>
+      <h1 style="color:var(--accent);font-size:48px;margin-bottom:24px;">Terms of Service</h1>
+
+      <h2 style="color:var(--accent);margin-top:0;">Acceptance of Terms</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        By accessing and using Moon.ai, you accept and agree to be bound by these Terms of Service. 
+        If you do not agree to these terms, please do not use our service.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Use of the Service</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        You may use the service only in compliance with these Terms and all applicable laws. You agree not to:
+      </p>
+      <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+        <li>Use the service for any illegal or unauthorized purpose</li>
+        <li>Violate any laws in your jurisdiction</li>
+        <li>Interfere with or disrupt the service or servers</li>
+        <li>Attempt to gain unauthorized access to any part of the service</li>
+      </ul>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Account Responsibilities</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        You are responsible for maintaining the security of your account and password. 
+        Moon.ai cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Limitation of Liability</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        To the maximum extent permitted by law, Moon.ai shall not be liable for any indirect, incidental, special, 
+        consequential, or punitive damages arising out of your use of the service.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Contact</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        If you have questions about these Terms, please contact us at 
+        <a href="mailto:legal@moon.ai" style="color:var(--accent);font-weight:600;">legal@moon.ai</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="modal-privacy" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+      <h1 style="color:var(--accent);font-size:48px;margin-bottom:24px;">Privacy Policy</h1>
+
+      <h2 style="color:var(--accent);margin-top:0;">Your Privacy Matters</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        At Moon.ai, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Information We Collect</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        We collect information that you provide directly to us, including:
+      </p>
+      <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+        <li>Account information (name, email address)</li>
+        <li>Authentication data when you sign in</li>
+        <li>Usage data and preferences</li>
+        <li>Device and browser information</li>
+      </ul>
+
+      <h2 style="color:var(--accent);margin-top:32px;">How We Use Your Information</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        We use the information we collect to:
+      </p>
+      <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+        <li>Provide, maintain, and improve our services</li>
+        <li>Personalize your experience</li>
+        <li>Communicate with you about updates and features</li>
+        <li>Ensure security and prevent fraud</li>
+      </ul>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Data Security</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        We implement industry-standard security measures to protect your personal information. Your data is encrypted both in transit and at rest.
+      </p>
+
+      <h2 style="color:var(--accent);margin-top:32px;">Your Rights</h2>
+      <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+        You have the right to access, correct, or delete your personal information at any time. Contact us at 
+        <a href="mailto:privacy@moon.ai" style="color:var(--accent);font-weight:600;">privacy@moon.ai</a> for any privacy-related requests.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin() {
+      alert('Login form would appear here.\n\nIn production, this would redirect to your login page or show a login modal.');
+      // In production: window.location.href = '/login';
+    }
+
+    function handleSignup() {
+      alert('Sign up form would appear here.\n\nIn production, this would redirect to your registration page or show a signup modal.');
+      // In production: window.location.href = '/signup';
+    }
+
+    function continueWithGoogle() {
+      alert('Redirecting to Google Sign-In...\n\nIn production, this requires Google OAuth 2.0 configuration.');
+      // In production: window.location.href = '/auth/google';
+    }
+
+    function continueWithApple() {
+      alert('Redirecting to Apple Sign-In...\n\nIn production, this requires Apple Sign In configuration.');
+      // In production: window.location.href = '/auth/apple';
+    }
+
+    function continueWithEmail() {
+      const email = prompt('Enter your email address:');
+      if (email && email.includes('@')) {
+        alert(`Magic link sent to ${email}!\n\nIn production, this would send an authentication email.`);
+        // In production: fetch('/auth/magic-link', { method: 'POST', body: JSON.stringify({ email }) });
+      } else if (email) {
+        alert('Please enter a valid email address.');
+      }
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const icon = document.querySelector('.theme-icon');
+      const logo = document.querySelector('.moonlogo');
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      
+      // Switch logo based on theme
+      if (newTheme === 'dark') {
+        logo.src = 'DarkMoonLogo.png';
+      } else {
+        logo.src = 'MoonLogo 2.png';
+      }
+    }
+
+    function openModal(type) {
+      document.getElementById('modal-' + type).style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(type) {
+      document.getElementById('modal-' + type).style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const icon = document.querySelector('.theme-icon');
+      const logo = document.querySelector('.moonlogo');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      
+      // Set correct logo on page load
+      if (savedTheme === 'dark') {
+        logo.src = 'DarkMoonLogo.png';
+      } else {
+        logo.src = 'MoonLogo 2.png';
+      }
+    });
+  </script>
+</body>
+</html>

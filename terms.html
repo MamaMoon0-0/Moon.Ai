@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/MoonLogo.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terms of Service — Moon.ai</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand">Moon.ai</div>
+      <div class="top-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="grid-template-columns:1fr;max-width:900px;">
+    <div>
+      <h1 style="color:var(--accent);font-size:48px;margin-bottom:24px;">Terms of Service</h1>
+
+      <div class="card grouped" style="max-width:100%;padding:40px;">
+        <h2 style="color:var(--accent);margin-top:0;">Acceptance of Terms</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          By accessing and using Moon.ai, you accept and agree to be bound by these Terms of Service. 
+          If you do not agree to these terms, please do not use our service.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Use of the Service</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          You may use the service only in compliance with these Terms and all applicable laws. You agree not to:
+        </p>
+        <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+          <li>Use the service for any illegal or unauthorized purpose</li>
+          <li>Violate any laws in your jurisdiction</li>
+          <li>Interfere with or disrupt the service or servers</li>
+          <li>Attempt to gain unauthorized access to any part of the service</li>
+        </ul>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Account Responsibilities</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          You are responsible for maintaining the security of your account and password. 
+          Moon.ai cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Limitation of Liability</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          To the maximum extent permitted by law, Moon.ai shall not be liable for any indirect, incidental, special, 
+          consequential, or punitive damages arising out of your use of the service.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Modifications to Service</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          We reserve the right to modify or discontinue, temporarily or permanently, the service with or without notice. 
+          You agree that Moon.ai shall not be liable to you or any third party for any modification or discontinuation of the service.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Contact</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          If you have questions about these Terms, please contact us at 
+          <a href="mailto:legal@moon.ai" style="color:var(--accent);font-weight:600;" target="_self">legal@moon.ai</a>
+        </p>
+      </div>
+
+      <p style="margin-top:32px;text-align:center;">
+        <a href="index.html" class="btn ghost" style="padding:12px 32px;">← Back to Home</a>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const icon = document.querySelector('.theme-icon');
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const icon = document.querySelector('.theme-icon');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

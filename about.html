@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/MoonLogo.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About — Moon.ai</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand">Moon.ai</div>
+      <div class="top-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="grid-template-columns:1fr;max-width:900px;">
+    <div>
+      <h1 style="color:var(--accent);font-size:48px;margin-bottom:24px;">About Moon.ai</h1>
+
+      <div class="card grouped" style="max-width:100%;padding:40px;">
+        <h2 style="color:var(--accent);margin-top:0;">Welcome to Moon.ai</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          Moon.ai is a dreamy, intuitive platform designed to bring a touch of magic to your digital experience. 
+          We believe in creating beautiful, accessible tools that make technology feel natural and welcoming.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Our Mission</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          To create delightful user experiences that blend functionality with aesthetic beauty, 
+          making advanced technology accessible to everyone through thoughtful design and intuitive interfaces.
+        </p>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Features</h2>
+        <ul style="color:var(--text-primary);line-height:1.8;font-size:16px;">
+          <li>Beautiful, responsive design that works on all devices</li>
+          <li>Secure authentication with multiple sign-in options</li>
+          <li>Dark and light theme support for comfortable viewing</li>
+          <li>Privacy-focused approach to user data</li>
+        </ul>
+
+        <h2 style="color:var(--accent);margin-top:32px;">Contact Us</h2>
+        <p style="color:var(--text-primary);line-height:1.6;font-size:16px;">
+          Have questions or feedback? We'd love to hear from you. 
+          <a href="mailto:hello@moon.ai" style="color:var(--accent);font-weight:600;" target="_self">hello@moon.ai</a>
+        </p>
+      </div>
+
+      <p style="margin-top:32px;text-align:center;">
+        <a href="index.html" class="btn ghost" style="padding:12px 32px;">← Back to Home</a>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const icon = document.querySelector('.theme-icon');
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const icon = document.querySelector('.theme-icon');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

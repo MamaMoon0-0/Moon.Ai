@@ -1,0 +1,369 @@
+/* Basic site styles for `index.html` */
+:root{
+  --bg:#f1f0f5ff;
+  --card:#9798c0;
+  --muted:#141315;
+  --accent:#120b38;
+  --accent-2:#ffffff;
+  --text-primary:#120b38;
+  --topbar-bg:#c9c8e1;
+  --topbar-border:transparent;
+  --button-bg:#ffffff;
+}
+
+[data-theme="dark"]{
+  --bg:#2b2e61ff;
+  --card:#3d3e80;
+  --muted:#e8e6f0;
+  --accent:#b9cded;
+  --accent-2:#9798c0;
+  --text-primary:#ffffff;
+  --topbar-bg:#1a0d3eff;
+  --topbar-border:transparent;
+  --button-bg:#1b1840ff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Segoe UI', 'Comic Sans MS', cursive, system-ui;
+  background:var(--bg);
+  color:var(--text-primary);
+  -webkit-font-smoothing:antialiased;
+  padding-top:70px;
+  min-height:100vh;
+}
+
+.container{
+  max-width:1400px;
+  margin:0 auto;
+  padding:40px 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  min-height:calc(100vh - 110px);
+}
+
+/* Top border/header */
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:var(--topbar-bg);
+  border-bottom:1px solid rgba(107,91,140,0.1);
+  z-index:1000;
+}
+.topbar-inner{
+  max-width:1400px;
+  margin:0 auto;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+}
+.brand{
+  font-weight:700;
+  color:var(--accent);
+  font-size:28px;
+  font-family:'Comic Sans MS', cursive;
+  transition:all 0.3s ease;
+  position:static;
+  left:0;
+}
+.top-actions{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  transition:all 0.3s ease;
+}
+.top-actions .btn{padding:10px 24px;font-size:15px}
+.topbar-btn{
+  padding:10px 24px;
+  font-size:15px;
+  border-radius:24px;
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+.topbar .btn.primary{
+  background:var(--accent);
+  color:#ffffff;
+  border:2px solid var(--accent);
+}
+
+/* Moon logo - repositioned to right column */
+.moonlogo{
+  width:100%;
+  max-width:500px;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  position:static;
+  z-index:1;
+  pointer-events:none;
+  transition:all 0.4s ease;
+  margin:0 auto;
+}
+
+/* Left column - cards area */
+.cards{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  margin-left:0;
+  margin-top:0;
+  transition:all 0.3s ease;
+  max-width:500px;
+}
+
+.hero{
+  display:none; /* hide duplicate title */
+}
+
+/* Main login card */
+.card.grouped{
+  padding:60px 50px;
+  width:100%;
+  max-width:500px;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  margin-left:0;
+  background:var(--card);
+  border:none;
+  border-radius:32px;
+  box-shadow:0 8px 32px rgba(107,91,140,0.15);
+  transition:all 0.3s ease;
+  position:relative;
+  z-index:10;
+}
+
+/* Button group inside card */
+.card.grouped .group{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  width:100%;
+  max-width:100%;
+  margin-top:0;
+}
+
+.card.grouped .btn{
+  width:100%;
+  padding:20px 28px;
+  font-size:16px;
+  border-radius:20px;
+  min-height:60px;
+  background:var(--button-bg);
+  color:var(--accent);
+  border:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  font-weight:600;
+}
+
+/* Single row for buttons */
+.card.grouped .group-row{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  width:100%;
+}
+.card.grouped .group-row .btn{
+  flex:none;
+  width:100%;
+}
+
+/* OR separator - circular purple */
+.or-separator{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:8px auto;
+  box-shadow:0 4px 12px rgba(107,91,140,0.25);
+  font-weight:700;
+  color:#ffffff;
+  font-size:14px;
+}
+
+/* Footer note */
+.card-note{
+  position:static;
+  margin-top:30px;
+  text-align:center;
+  font-size:13px;
+  color:var(--accent);
+  opacity:0.8;
+}
+.card-note a{
+  color:var(--accent);
+  text-decoration:underline;
+  font-weight:600;
+}
+
+/* Right column - logo container */
+.logo-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+/* About button - bottom right */
+.about-btn{
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  padding:12px 28px;
+  background:var(--card);
+  color:var(--accent);
+  border:none;
+  border-radius:24px;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(107,91,140,0.2);
+  transition:all 0.3s ease;
+  z-index:100;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.about-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(107,91,140,0.3);
+}
+
+/* Theme toggle */
+.theme-toggle{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  padding:10px 16px;
+  border-radius:24px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:600;
+  transition:all 0.3s ease;
+}
+
+.theme-toggle:hover{
+  background:var(--accent);
+  color:#ffffff;
+}
+
+/* Modal styles */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.modal-content{
+  background:var(--card);
+  border-radius:32px;
+  padding:50px;
+  max-width:800px;
+  width:100%;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  animation:modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn{
+  from{
+    opacity:0;
+    transform:translateY(-30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.modal-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:transparent;
+  border:none;
+  font-size:36px;
+  color:var(--accent);
+  cursor:pointer;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  transition:all 0.3s ease;
+}
+
+.modal-close:hover{
+  background:var(--accent);
+  color:#ffffff;
+  transform:rotate(90deg);
+}
+
+@media (max-width:640px){
+  .topbar-inner{padding:0 24px}
+  .container{padding:24px}
+  .card.grouped{padding:40px 30px}
+  .brand{font-size:24px}
+  .about-btn{bottom:24px;right:24px}
+  .modal-content{
+    padding:30px;
+    max-height:85vh;
+  }
+  .modal-close{
+    top:15px;
+    right:15px;
+    font-size:28px;
+  }
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:24px;
+  border:2px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+  transition:all .3s ease;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.btn.primary{
+  color:#ffffff;
+  background:var(--accent);
+  border:2px solid var(--accent);
+}
+
+.btn.ghost{
+  color:var(--accent);
+  background:transparent;
+  border:2px solid var(--accent);
+}
