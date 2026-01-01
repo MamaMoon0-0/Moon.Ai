@@ -278,7 +278,9 @@ function continueWithEmail() {
   const email = prompt('Enter your email address:');
   if (!email) return;
   
-  if (!email.includes('@') || !email.includes('.')) {
+  // Basic email validation with proper regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
     showNotification('Please enter a valid email address.', 'error');
     return;
   }
@@ -351,26 +353,6 @@ function showNotification(message, type = 'info') {
 // Add CSS animations
 const style = document.createElement('style');
 style.textContent = `
-  @keyframes slideIn {
-    from {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-  }
   .user-menu {
     display: flex;
     gap: 16px;
@@ -381,17 +363,7 @@ document.head.appendChild(style);
 
 // Initialize OAuth on page load
 window.addEventListener('load', () => {
-  // Initialize Google OAuth when script loads
-  if (window.google && window.google.accounts) {
-    initGoogleOAuth();
-  }
-  
-  // Update UI based on auth state
-  authManager.updateUI();
-});
-
-// Listen for Google Identity Services to load
-window.addEventListener('load', () => {
+  // Initialize Google OAuth when both window.google and google.accounts are available
   const checkGoogle = setInterval(() => {
     if (window.google && window.google.accounts) {
       initGoogleOAuth();
@@ -401,4 +373,7 @@ window.addEventListener('load', () => {
   
   // Stop checking after 10 seconds
   setTimeout(() => clearInterval(checkGoogle), 10000);
+  
+  // Update UI based on auth state
+  authManager.updateUI();
 });

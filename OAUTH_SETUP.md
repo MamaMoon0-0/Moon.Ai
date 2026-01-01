@@ -181,7 +181,8 @@ Manages authentication state and user sessions:
 2. **Token Storage**: Tokens are stored in localStorage (consider more secure options for sensitive data)
 3. **Token Expiry**: Tokens expire after 1 hour (implement refresh logic for production)
 4. **Client-Side Only**: This is a client-side implementation; consider server-side verification for production
-5. **Domain Restrictions**: Configure authorized domains carefully in OAuth provider settings
+5. **JWT Verification**: ID tokens should be verified server-side in production. The current client-side parsing is for demo purposes only and does not verify the token signature
+6. **Domain Restrictions**: Configure authorized domains carefully in OAuth provider settings
 
 ## Customization
 

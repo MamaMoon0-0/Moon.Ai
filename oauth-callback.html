@@ -95,6 +95,8 @@
           // Parse ID token if available
           if (idToken) {
             try {
+              // Note: In production, ID tokens should be verified server-side
+              // This client-side parsing is for demo purposes only
               const payload = JSON.parse(atob(idToken.split('.')[1]));
               const userData = {
                 provider: 'oauth',
