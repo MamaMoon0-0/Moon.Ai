@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Favicon -->
   <link rel="icon" href="/MoonLogo.png" type="image/png">
-
+  
+  <!-- Google OAuth SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <!-- Apple Sign In SDK -->
+  <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
 </head>
 <body>
@@ -174,6 +179,7 @@
     </div>
   </div>
 
+  <script src="oauth-config.js"></script>
   <script>
     function handleLogin() {
       alert('Login form would appear here.\n\nIn production, this would redirect to your login page or show a login modal.');
@@ -185,25 +191,7 @@
       // In production: window.location.href = '/signup';
     }
 
-    function continueWithGoogle() {
-      alert('Redirecting to Google Sign-In...\n\nIn production, this requires Google OAuth 2.0 configuration.');
-      // In production: window.location.href = '/auth/google';
-    }
-
-    function continueWithApple() {
-      alert('Redirecting to Apple Sign-In...\n\nIn production, this requires Apple Sign In configuration.');
-      // In production: window.location.href = '/auth/apple';
-    }
-
-    function continueWithEmail() {
-      const email = prompt('Enter your email address:');
-      if (email && email.includes('@')) {
-        alert(`Magic link sent to ${email}!\n\nIn production, this would send an authentication email.`);
-        // In production: fetch('/auth/magic-link', { method: 'POST', body: JSON.stringify({ email }) });
-      } else if (email) {
-        alert('Please enter a valid email address.');
-      }
-    }
+    // continueWithGoogle(), continueWithApple(), and continueWithEmail() are now in oauth-config.js
 
     function toggleTheme() {
       const html = document.documentElement;
